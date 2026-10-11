@@ -1,0 +1,381 @@
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-stats {
+    justify-content: center;
+  }
+
+  .chat-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: none;
+    min-height: 70vh;
+  }
+
+  .chat-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    max-height: 220px;
+  }
+
+  .nav-link span {
+    display: none;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+
+  .container,
+  .container-sm,
+  .container-md {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .header-inner {
+    height: 60px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .header-actions .btn {
+    display: none;
+  }
+
+  .header-actions .user-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .mobile-menu {
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+
+  .mobile-menu .nav-link span {
+    display: inline;
+  }
+
+  .hero {
+    padding: 40px 0 32px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-card {
+    width: min(260px, 100%);
+  }
+
+  .hero-card:nth-child(1),
+  .hero-card:nth-child(2) {
+    transform: none;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .subjects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .discover-container {
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
+  .discover-avatar-wrap {
+    height: 220px;
+  }
+
+  .discover-info {
+    padding: 18px 16px;
+  }
+
+  .discover-name {
+    font-size: 1.3rem;
+  }
+
+  .discover-actions {
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .action-btn {
+    width: 56px;
+    height: 56px;
+    font-size: 1.35rem;
+  }
+
+  .matches-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rec-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-page {
+    padding: 24px 12px;
+    align-items: flex-start;
+  }
+
+  .auth-card {
+    padding: 24px 18px;
+    max-width: 100%;
+  }
+
+  .filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters-bar .form-select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .chat-messages {
+    min-height: 280px;
+    max-height: 50vh;
+  }
+
+  .message {
+    max-width: 88%;
+  }
+
+  .main-content {
+    padding: 16px 0 40px;
+  }
+
+  .profile-avatar-lg {
+    width: 110px;
+    height: 110px;
+  }
+
+  .profile-stats {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn-lg {
+    padding: 14px 22px;
+    font-size: 0.95rem;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .quote-section {
+    padding: 28px 20px;
+  }
+
+  .quote-text {
+    font-size: 1.1rem;
+  }
+
+ 
+  .btn,
+  .action-btn,
+  .subject-card,
+  .option-card,
+  .nav-link {
+    min-height: 44px;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 375px) {
+  .subjects-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .subject-card {
+    padding: 12px 8px;
+  }
+
+  .subject-card i {
+    font-size: 1.4rem;
+  }
+
+  .subject-card h4 {
+    font-size: 0.8rem;
+  }
+
+  .subject-card p {
+    display: none;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .discover-match-badge {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .action-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .logo span {
+    font-size: 1.15rem;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero-actions .btn {
+    font-size: 0.9rem;
+  }
+
+  .discover-actions {
+    gap: 10px;
+  }
+}
+
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding: 24px 0;
+  }
+
+  .auth-page {
+    padding: 16px;
+  }
+
+  .discover-avatar-wrap {
+    height: 160px;
+  }
+}

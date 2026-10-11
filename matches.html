@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matches — StudyMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div id="appHeader"></div>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h1><i class="fas fa-book text-secondary"></i> Matches của bạn</h1>
+        <p class="text-muted">Những người đã cùng thích bạn — sẵn sàng học cùng!</p>
+      </div>
+
+      <div class="matches-grid" id="matchesGrid">
+        <div class="loading"><div class="spinner"></div> Đang tải...</div>
+      </div>
+    </div>
+  </main>
+
+  <div id="appFooter"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/matching.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!requireAuth()) return;
+      initPage('matches');
+      renderMatches();
+    });
+
+    function renderMatches() {
+      const user = getCurrentUser();
+      const matches = getUserMatches(user.id);
+      const grid = document.getElementById('matchesGrid');
+
+      if (matches.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state" style="grid-column:1/-1;">
+            <i class="fas fa-book"></i>
+            <h3>Bạn chưa có bạn học nào</h3>
+            <p>Hãy khám phá và Like những người phù hợp. Khi họ cũng Like bạn, các bạn sẽ Match!</p>
+            <a href="discover.html" class="btn btn-primary">
+              <i class="fas fa-compass"></i> Khám phá bạn học
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = matches.map(m => {
+        const other = m.otherUser;
+        return `
+          <div class="card match-card hover-lift animate-fadeInUp">
+            <img src="${other.avatar}" alt="${other.name}">
+            <h3>${other.name}</h3>
+            <span class="match-pct">${m.percentage}% Match</span>
+            <p class="text-sm text-muted mt-1">
+              ${m.sharedSubjectNames.join(', ') || '—'}
+            </p>
+            <p class="text-sm text-muted">
+              <i class="fas fa-clock"></i> ${timeAgo(m.createdAt)}
+            </p>
+            <div class="flex gap-1 mt-3" style="justify-content:center;flex-wrap:wrap;">
+              <a href="chat.html?user=${other.id}" class="btn btn-primary btn-sm">
+                <i class="fas fa-comments"></i> Nhắn tin
+              </a>
+              <button class="btn btn-outline btn-sm" onclick="viewMatchProfile('${other.id}')">
+                <i class="fas fa-user"></i> Xem hồ sơ
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function viewMatchProfile(userId) {
+      const users = getUsers();
+      const u = users.find(x => x.id === userId);
+      if (!u) return;
+      const current = getCurrentUser();
+      const pct = calculateMatchPercentage(current, u);
+      const explanation = explainMatch(current, u);
+
+      alert(`${u.name}, ${u.age}\n${u.school}\n\n${u.bio || ''}\n\n${pct}% — ${explanation.label}\n${explanation.reasons.join('\n')}`);
+    }
+  </script>
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="-485k80XutrBqQQOvvlqV";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu — StudyMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div id="appHeader"></div>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="text-center mb-4 animate-fadeInUp">
+        <h1><i class="fas fa-graduation-cap text-primary"></i> Về StudyMatch</h1>
+        <p class="text-muted text-lg">Tìm đúng người để cùng học</p>
+      </div>
+
+      <div class="card mb-3 animate-fadeInUp">
+        <h2 class="mb-2">StudyMatch là gì?</h2>
+        <p class="text-muted" style="line-height:1.8;">
+          StudyMatch là nền tảng web giúp học sinh và sinh viên tìm <strong>bạn học phù hợp</strong>
+          dựa trên môn học, mục tiêu, thời gian rảnh và phong cách học.
+          Giao diện lấy cảm hứng từ cơ chế swipe/matching hiện đại, nhưng được thiết kế riêng cho cộng đồng học tập — không phải ứng dụng hẹn hò.
+        </p>
+      </div>
+
+      <div class="features-grid mb-3 stagger-children">
+        <div class="card feature-card">
+          <div class="feature-icon"><i class="fas fa-percentage"></i></div>
+          <h4>% Tương thích</h4>
+          <p>Thuật toán 6 tiêu chí: môn học, phong cách, mục tiêu, thời gian, phương thức, trình độ.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><i class="fas fa-book"></i></div>
+          <h4>Match & Chat</h4>
+          <p>Like hai chiều tạo Match, sau đó trò chuyện và lên lịch học cùng nhau.</p>
+        </div>
+        <div class="card feature-card">
+          <div class="feature-icon"><i class="fas fa-robot"></i></div>
+          <h4>AI Study Assistant</h4>
+          <p>Gợi ý phương pháp học và lịch học dựa trên hồ sơ của bạn.</p>
+        </div>
+      </div>
+
+      <div class="card mb-3 animate-fadeInUp">
+        <h2 class="mb-2">Dành cho ai?</h2>
+        <ul style="color:var(--text-muted);line-height:2;padding-left:1.2rem;list-style:disc;">
+          <li>Học sinh / sinh viên cần bạn ôn thi, làm bài tập</li>
+          <li>Người muốn học nhóm online hoặc trực tiếp</li>
+          <li>Ai thích tìm bạn cùng môn và cùng khung giờ rảnh</li>
+        </ul>
+      </div>
+      <div class="text-center mt-4">
+        <a href="register.html" class="btn btn-primary btn-lg"><i class="fas fa-rocket"></i> Bắt đầu ngay</a>
+        <a href="index.html" class="btn btn-outline btn-lg">Về trang chủ</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="appFooter"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/matching.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => initPage('about'));
+  </script>
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="-485k80XutrBqQQOvvlqV";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+</body>
+</html>

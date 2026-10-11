@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chọn môn học — StudyMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div id="appHeader"></div>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h1>Bạn muốn học gì?</h1>
+        <p class="text-muted">Chọn một hoặc nhiều môn học bạn muốn tìm bạn học cùng.</p>
+        <div class="progress-bar" style="max-width:300px;margin:16px auto 0;">
+          <div class="progress-fill" id="progressFill" style="width:33%;"></div>
+        </div>
+        <p class="text-sm text-muted mt-1">Bước 1/3</p>
+      </div>
+
+      <div class="subjects-grid stagger-children mb-4" id="subjectsGrid"></div>
+
+      <div class="card mb-4">
+        <h3 class="mb-3">Mục tiêu học tập của bạn là gì?</h3>
+        <div class="options-grid" id="goalsGrid"></div>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-primary btn-lg" id="btnNext" onclick="goToPreferences()" disabled>
+          Tiếp tục <i class="fas fa-arrow-right"></i>
+        </button>
+        <p class="text-sm text-muted mt-2">Chọn ít nhất 1 môn học để tiếp tục</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="appFooter"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/matching.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let selectedSubjects = [];
+    let selectedGoals = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!requireAuth()) return;
+      initPage('');
+
+      const user = getCurrentUser();
+      selectedSubjects = [...(user.subjects || [])];
+      selectedGoals = [...(user.goals || [])];
+
+      renderSubjects();
+      renderGoals();
+      updateButton();
+    });
+
+    function renderSubjects() {
+      const grid = document.getElementById('subjectsGrid');
+      grid.innerHTML = SUBJECTS.map(s => `
+        <div class="subject-card ${selectedSubjects.includes(s.id) ? 'selected' : ''}"
+             onclick="toggleSubject('${s.id}')" role="button" tabindex="0"
+             aria-pressed="${selectedSubjects.includes(s.id)}">
+          <i class="${s.icon}"></i>
+          <h4>${s.name}</h4>
+          <p>${s.description}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderGoals() {
+      const grid = document.getElementById('goalsGrid');
+      grid.innerHTML = LEARNING_GOALS.map(g => `
+        <div class="option-card ${selectedGoals.includes(g.id) ? 'selected' : ''}"
+             onclick="toggleGoal('${g.id}')" role="button" tabindex="0">
+          <i class="${g.icon}"></i>
+          <span>${g.name}</span>
+        </div>
+      `).join('');
+    }
+
+    function toggleSubject(id) {
+      const idx = selectedSubjects.indexOf(id);
+      if (idx >= 0) selectedSubjects.splice(idx, 1);
+      else selectedSubjects.push(id);
+      renderSubjects();
+      updateButton();
+    }
+
+    function toggleGoal(id) {
+      const idx = selectedGoals.indexOf(id);
+      if (idx >= 0) selectedGoals.splice(idx, 1);
+      else selectedGoals.push(id);
+      renderGoals();
+    }
+
+    function updateButton() {
+      document.getElementById('btnNext').disabled = selectedSubjects.length === 0;
+    }
+
+    function goToPreferences() {
+      updateCurrentUser({
+        subjects: selectedSubjects,
+        goals: selectedGoals
+      });
+      window.location.href = 'settings.html?step=preferences';
+    }
+  </script>
+  <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="-485k80XutrBqQQOvvlqV";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+</body>
+</html>
