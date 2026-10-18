@@ -39,7 +39,7 @@ function renderHeader(activePage = '') {
   const actions = isAuth
     ? `
       <a href="profile.html" title="${user.name}">
-        <img src="${user.avatar}" alt="${user.name}" class="user-avatar" width="40" height="40">
+        <img ${avatarImgAttrs(user.avatar, user.name, "user-avatar")}>
       </a>
       <button class="btn btn-ghost btn-sm" onclick="logoutUser()" aria-label="Đăng xuất">
         <i class="fas fa-sign-out-alt"></i>
@@ -243,9 +243,9 @@ function showMatchModal(currentUser, matchedUser, percentage) {
       </h2>
       <p class="text-muted mb-3">Bạn đã tìm được bạn học!</p>
       <div class="match-avatars">
-        <img src="${currentUser.avatar}" alt="${currentUser.name}">
+        <img ${avatarImgAttrs(currentUser.avatar, currentUser.name)}>
         <i class="fas fa-book-open match-heart animate-heartBeat"></i>
-        <img src="${matchedUser.avatar}" alt="${matchedUser.name}">
+        <img ${avatarImgAttrs(matchedUser.avatar, matchedUser.name)}>
       </div>
       <h3>${currentUser.name} & ${matchedUser.name}</h3>
       <p class="match-pct" style="margin: 12px 0;">${percentage}% Tương thích</p>

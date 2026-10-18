@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="StudyMatch - Tìm bạn học phù hợp với bạn. Kết nối học sinh, sinh viên có cùng môn học và mục tiêu.">
+  <meta name="description"
+    content="StudyMatch - Tìm bạn học phù hợp với bạn. Kết nối học sinh, sinh viên có cùng môn học và mục tiêu.">
   <title>StudyMatch — Tìm đúng người để cùng học</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,6 +14,7 @@
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/animations.css">
 </head>
+
 <body>
   <div id="appHeader"></div>
 
@@ -21,7 +24,8 @@
       <div class="container hero-grid">
         <div class="hero-content animate-fadeInUp">
           <h1>Tìm đúng người để cùng học.</h1>
-          <p>Kết nối với những người có chung môn học, mục tiêu, thời gian và phong cách học tập với bạn. Học hiệu quả hơn khi có bạn đồng hành.</p>
+          <p>Kết nối với những người có chung môn học, mục tiêu, thời gian và phong cách học tập với bạn. Học hiệu quả
+            hơn khi có bạn đồng hành.</p>
           <div class="hero-actions">
             <a href="register.html" class="btn btn-primary btn-lg">
               <i class="fas fa-rocket"></i> Bắt đầu miễn phí
@@ -32,13 +36,15 @@
         <div class="hero-visual animate-fadeIn">
           <div class="hero-cards">
             <div class="hero-card">
-              <img src="https://i.pravatar.cc/150?u=alex" alt="Demo user" class="hero-card-avatar">
+              <img src="https://i.pravatar.cc/150?u=alex" alt="Demo user" class="hero-card-avatar"
+                onerror="this.onerror=null;this.src=DEFAULT_AVATAR">
               <h4>Alex</h4>
               <p class="text-sm text-muted">Toán · Vật lý</p>
               <span class="hero-card-match">92% Match</span>
             </div>
             <div class="hero-card">
-              <img src="https://i.pravatar.cc/150?u=emma" alt="Demo user" class="hero-card-avatar">
+              <img src="https://i.pravatar.cc/150?u=emma" alt="Demo user" class="hero-card-avatar"
+                onerror="this.onerror=null;this.src=DEFAULT_AVATAR">
               <h4>Emma</h4>
               <p class="text-sm text-muted">Hóa · Sinh</p>
               <span class="hero-card-match">88% Match</span>
@@ -129,7 +135,8 @@
     <section class="section" style="padding-top:0;">
       <div class="container text-center">
         <h2 class="mb-2">Sẵn sàng tìm bạn học?</h2>
-        <p class="text-muted mb-3" style="max-width:500px;margin:0 auto 24px;">Tham gia StudyMatch ngay hôm nay — hoàn toàn miễn phí cho học sinh và sinh viên.</p>
+        <p class="text-muted mb-3" style="max-width:500px;margin:0 auto 24px;">Tham gia StudyMatch ngay hôm nay — hoàn
+          toàn miễn phí cho học sinh và sinh viên.</p>
         <a href="register.html" class="btn btn-primary btn-lg">
           <i class="fas fa-user-plus"></i> Đăng ký ngay
         </a>
@@ -159,7 +166,8 @@
     });
   </script>
   <script>
-    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="-485k80XutrBqQQOvvlqV";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...args) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "-485k80XutrBqQQOvvlqV"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
   </script>
 </body>
+
 </html>

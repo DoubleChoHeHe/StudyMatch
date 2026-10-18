@@ -23,7 +23,7 @@ function renderProfile() {
 
   container.innerHTML = `
     <div class="profile-header animate-fadeInUp">
-      <img src="${user.avatar}" alt="${user.name}" class="profile-avatar-lg">
+      <img ${avatarImgAttrs(user.avatar, user.name, "profile-avatar-lg")}>
       <div>
         <h1>${user.name}</h1>
         <p class="text-muted"><i class="fas fa-at"></i> ${user.username} · ${user.age} tuổi</p>

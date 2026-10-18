@@ -62,7 +62,7 @@
         const other = m.otherUser;
         return `
           <div class="card match-card hover-lift animate-fadeInUp">
-            <img src="${other.avatar}" alt="${other.name}">
+            <img ${avatarImgAttrs(other.avatar, other.name)}>
             <h3>${other.name}</h3>
             <span class="match-pct">${m.percentage}% Match</span>
             <p class="text-sm text-muted mt-1">

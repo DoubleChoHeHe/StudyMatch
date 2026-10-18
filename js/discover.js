@@ -55,7 +55,7 @@ function renderCurrentCard() {
   container.innerHTML = `
     <div class="discover-card animate-scaleIn" id="swipeCard">
       <div class="discover-avatar-wrap">
-        <img src="${user.avatar}" alt="${user.name}" class="discover-avatar">
+        <img ${avatarImgAttrs(user.avatar, user.name, "discover-avatar")}>
         <div class="discover-match-badge">${percentage}%</div>
       </div>
       <div class="discover-info">
@@ -160,7 +160,7 @@ function renderRecommendationList() {
 
   container.innerHTML = recs.map(({ user, percentage, sharedSubjects, sharedAvail }) => `
     <div class="card rec-card hover-lift">
-      <img src="${user.avatar}" alt="${user.name}">
+      <img ${avatarImgAttrs(user.avatar, user.name, "discover-avatar")}>
       <h4>${user.name}</h4>
       <span class="match-pct">${percentage}% Match</span>
       <p class="text-sm text-muted mt-1">

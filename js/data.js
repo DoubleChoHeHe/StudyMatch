@@ -1,4 +1,16 @@
+const DEFAULT_AVATAR = "images/default-avatar.jpg";
 
+function getAvatarUrl(url) {
+  if (url && String(url).trim()) return String(url).trim();
+  return DEFAULT_AVATAR;
+}
+function avatarImgAttrs(url, alt, className) {
+  const src = getAvatarUrl(url);
+  const safeAlt = (alt || "Avatar").replace(/"/g, "&quot;");
+  const cls = className ? ` class="${className}"` : "";
+  const onerr = ` onerror="this.onerror=null;this.src=DEFAULT_AVATAR"`;
+  return `src="${src}" alt="${safeAlt}"${cls}${onerr}`;
+}
 const SUBJECTS = [
   { id: 'math', name: 'Toán', icon: 'fas fa-calculator', description: 'Đại số, Giải tích, Hình học' },
   { id: 'physics', name: 'Vật lý', icon: 'fas fa-atom', description: 'Cơ học, Điện từ, Quang học' },

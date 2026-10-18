@@ -46,7 +46,7 @@ function renderChatList() {
     return `
       <div class="chat-list-item ${activeChatUserId === other.id ? 'active' : ''}"
            onclick="openChat('${other.id}')" role="button" tabindex="0">
-        <img src="${other.avatar}" alt="${other.name}">
+        <img ${avatarImgAttrs(other.avatar, other.name)}>
         <div class="chat-list-info">
           <h4>${other.name}</h4>
           <p>${lastMsg ? (lastMsg.senderId === currentUser.id ? 'Bạn: ' : '') + lastMsg.text : 'Bắt đầu trò chuyện...'}</p>
@@ -92,7 +92,7 @@ function renderChatHeader(other) {
   const sharedNames = getSubjectNames(shared);
 
   header.innerHTML = `
-    <img src="${other.avatar}" alt="${other.name}">
+    <img ${avatarImgAttrs(other.avatar, other.name)}>
     <div>
       <h4>${other.name}</h4>
       <p class="text-sm text-muted">
